@@ -1,0 +1,25 @@
+services:
+  strapi:
+    build: .
+    container_name: hivissual-strapi
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "1337:1337"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: hivissual-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: strapi
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
