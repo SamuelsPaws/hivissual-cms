@@ -1,8 +1,8 @@
 {
   "collectionName": "components_shared_rich_texts",
   "info": {
-    "displayName": "Rich text",
-    "icon": "align-justify",
+    "displayName": "Texto",
+    "icon": "write",
     "description": ""
   },
   "options": {},

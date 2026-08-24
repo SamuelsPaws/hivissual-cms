@@ -1,15 +1,15 @@
 {
   "collectionName": "components_shared_quotes",
   "info": {
-    "displayName": "Quote",
-    "icon": "indent"
+    "displayName": "Cita",
+    "icon": "quote"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "author": {
       "type": "string"
     },
-    "body": {
+    "message": {
       "type": "text"
     }
   }

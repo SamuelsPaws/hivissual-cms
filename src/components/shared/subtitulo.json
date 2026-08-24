@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_subtitulos",
+  "info": {
+    "displayName": "Subtítulo",
+    "icon": "italic"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "unique": false
+    }
+  },
+  "config": {}
+}

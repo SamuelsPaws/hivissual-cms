@@ -3,8 +3,8 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Multimedia';
+    icon: 'landscape';
   };
   attributes: {
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
@@ -14,12 +14,12 @@ export interface SharedMedia extends Struct.ComponentSchema {
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    displayName: 'Cita';
+    icon: 'quote';
   };
   attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    author: Schema.Attribute.String;
+    message: Schema.Attribute.Text;
   };
 }
 
@@ -27,8 +27,8 @@ export interface SharedRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
     description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'Texto';
+    icon: 'write';
   };
   attributes: {
     body: Schema.Attribute.RichText;
@@ -50,15 +50,14 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface SharedSubtitulo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_subtitulos';
   info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'Subt\u00EDtulo';
+    icon: 'italic';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    text: Schema.Attribute.String;
   };
 }
 
@@ -69,7 +68,7 @@ declare module '@strapi/strapi' {
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'shared.subtitulo': SharedSubtitulo;
     }
   }
 }
