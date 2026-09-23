@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_fotografia_de_portafolios",
+  "info": {
+    "displayName": "Fotografía de Portafolio",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

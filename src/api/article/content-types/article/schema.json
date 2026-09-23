@@ -22,7 +22,7 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 80
+      "maxLength": 200
     },
     "slug": {
       "type": "uid",

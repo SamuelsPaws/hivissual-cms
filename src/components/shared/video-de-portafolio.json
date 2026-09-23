@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_shared_video_de_portafolios",
+  "info": {
+    "displayName": "Video de Portafolio",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "linkToPost": {
+      "type": "string"
+    },
+    "postPlatform": {
+      "type": "enumeration",
+      "enum": [
+        "Instagram",
+        "TikTok",
+        "YouTube",
+        "Facebook",
+        "Otro"
+      ]
+    }
+  },
+  "config": {}
+}

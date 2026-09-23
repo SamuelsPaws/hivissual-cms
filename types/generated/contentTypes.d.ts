@@ -502,7 +502,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
+        maxLength: 200;
       }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -550,6 +550,74 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPortfolioItemPortfolioItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_items';
+  info: {
+    displayName: 'Item de Portafolio';
+    pluralName: 'portfolio-items';
+    singularName: 'portfolio-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    client: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    displayTitle: Schema.Attribute.String;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    industry: Schema.Attribute.Enumeration<
+      [
+        'Hoteler\u00EDa',
+        'Restaurantes y Gastronom\u00EDa',
+        'Comercio y Tiendas',
+        'Bienes Ra\u00EDces',
+        'Salud y Bienestar',
+        'Belleza y Cuidado Personal',
+        'Servicios Profesionales',
+        'Moda y Estilo de Vida',
+        'Automotriz',
+        'Eventos y Entretenimiento',
+        'Otros',
+      ]
+    > &
+      Schema.Attribute.Required;
+    innerTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-item.portfolio-item'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.DynamicZone<
+      ['shared.fotografia-de-portafolio', 'shared.video-de-portafolio']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+        },
+        number
+      >;
+    priority: Schema.Attribute.Enumeration<
+      ['M\u00E1xima', 'Alta', 'Normal', 'Baja', 'M\u00EDnima']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Alta'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'innerTitle'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1070,6 +1138,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::portfolio-item.portfolio-item': ApiPortfolioItemPortfolioItem;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

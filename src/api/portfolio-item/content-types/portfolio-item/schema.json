@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_items",
+  "info": {
+    "singularName": "portfolio-item",
+    "pluralName": "portfolio-items",
+    "displayName": "Item de Portafolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "innerTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "client": {
+      "type": "string",
+      "required": true
+    },
+    "industry": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Hotelería",
+        "Restaurantes y Gastronomía",
+        "Comercio y Tiendas",
+        "Bienes Raíces",
+        "Salud y Bienestar",
+        "Belleza y Cuidado Personal",
+        "Servicios Profesionales",
+        "Moda y Estilo de Vida",
+        "Automotriz",
+        "Eventos y Entretenimiento",
+        "Otros"
+      ]
+    },
+    "displayTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "featured": {
+      "type": "boolean",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": false
+    },
+    "priority": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Alta",
+      "enum": [
+        "Máxima",
+        "Alta",
+        "Normal",
+        "Baja",
+        "Mínima"
+      ]
+    },
+    "media": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.fotografia-de-portafolio",
+        "shared.video-de-portafolio"
+      ],
+      "required": true,
+      "max": 1
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "innerTitle",
+      "required": true
+    }
+  }
+}
