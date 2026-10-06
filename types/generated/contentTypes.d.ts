@@ -568,6 +568,11 @@ export interface ApiPortfolioItemPortfolioItem
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['Redes Sociales', 'Corporativo', 'Cinem\u00E1tico']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Redes Sociales'>;
     client: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

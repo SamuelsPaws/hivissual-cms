@@ -20,6 +20,12 @@
       "type": "string",
       "required": true
     },
+    "displayTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
     "industry": {
       "type": "enumeration",
       "required": true,
@@ -37,11 +43,15 @@
         "Otros"
       ]
     },
-    "displayTitle": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
+    "category": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Redes Sociales",
+      "enum": [
+        "Redes Sociales",
+        "Corporativo",
+        "Cinemático"
+      ]
     },
     "featured": {
       "type": "boolean",
